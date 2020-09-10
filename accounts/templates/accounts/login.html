@@ -1,0 +1,27 @@
+{% extends "shortener/base.html" %}
+
+{% block content %}
+    <div class="login_div">
+
+      <form method="post" action="" autocomplete="off">
+        {% csrf_token %}
+        <h2 class="light-text">Авторизуйтесь</h2>
+        <p class="error">{{ error }}</p>
+        <div class="form-group">
+          <label for="login" class="light-text">Имя пользователя</label>
+          <input name="username" type="text" class="form-control" id="login" placeholder="Введите логин" required>
+          <span class="text-danger errorlogin"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="light-text">Пароль</label>
+          <input name="password" type="password" class="form-control" id="password" placeholder="Введите пароль" required>
+          <span class="text-danger errorpassword"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Войти</button><br>
+        <a href="/accounts/registration">Не зарегистрированы?</a>
+        <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+
+  {% block title %}<title>Local Library</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Добавление дополнительного статического CSS файла -->
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+  <header class="site_header">
+
+    <div class="header-links">
+      <a href="/" class="header-link">Домой</a>
+      <a href="/links/" class="header-link">Ваши короткие url</a>
+    </div>
+
+    <div class="header-signin">
+      {% if user.is_authenticated %}
+        <p href="" class="header-text">{{ user.username }}</p> 
+        <a href="/accounts/logout/" class="text-link">Выйти</a>
+      {% else %}
+        <a href="/accounts/login/" class="header-link">Войти</a>
+        <a href="/accounts/registration/" class="header-link">Зарегистрироваться</a>
+      {% endif %}
+    </div>
+
+  </header>
+  <div role="main" class="main">
+    {% block content %}{% endblock %}
+  </div>
+
+</body>
+</html>

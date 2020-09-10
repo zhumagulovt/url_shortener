@@ -1,0 +1,35 @@
+{% extends "shortener/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="login_div">
+        <form method="post" action="" autocomplete="off" novalidate>
+          {% csrf_token %}
+          <h2 class="light-text">Регистрация</h2>
+          <p class="error">{{ error }}</p>
+          <div class="form-group">
+            <label for="login" class="light-text">Имя пользователя</label>
+            <input name="username" type="text" class="form-control" id="login" placeholder="Введите логин">
+            <span class="text-danger errorlogin"></span>
+          </div>
+          <div class="form-group">
+            <label for="email" class="light-text">Email адрес</label>
+            <input name="email" type="email" class="form-control" id="email" placeholder="Введите email">
+            <span class="text-danger erroremail"></span>
+          </div>
+          <div class="form-group">
+            <label for="password" class="light-text">Пароль</label>
+            <input name="password" type="password" class="form-control" id="password" placeholder="Введите пароль">
+            <span class="text-danger errorpassword"></span>
+          </div>
+          <div class="form-group">
+            <label for="password2" class="light-text">Пароль еще раз</label>
+            <input name="password2" type="password" class="form-control" id="password2" placeholder="Введите пароль еще раз">
+            <span class="text-danger errorpassword2"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Регистрация</button>
+          <input type="hidden" name="next" value="{{ next }}"/>
+        </form>
+        <script src="{% static 'js/signup.js' %}"></script>
+    </div>
+
+{% endblock %}

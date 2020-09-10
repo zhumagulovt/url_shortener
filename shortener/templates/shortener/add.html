@@ -1,0 +1,19 @@
+{% extends "shortener/base.html" %}
+
+{% block content %}
+    <div class="login_div mt-5">
+
+      <form method="post" action="" autocomplete="off">
+        {% csrf_token %}
+
+        <div class="form-group">
+          <label for="url" class="light-text">Url который надо укорочить</label>
+          <input name="url" type="text" class="form-control" id="url" placeholder="Введите url" required>
+          <span class="text-danger errorlogin"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </form>
+    </div>
+
+{% endblock %}

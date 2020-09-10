@@ -1,0 +1,7 @@
+{% extends "shortener/base.html" %}
+
+{% block content %}
+
+<h1 class="text-center mt-3"> {{object.long_url}}</h1>
+<h2 class="text-center mt-3"> Короткая ссылка: {{ request.scheme }}://{{ request.META.HTTP_HOST }}/{{object.short_url}}</h2>
+{% endblock %}
