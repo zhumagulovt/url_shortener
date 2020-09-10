@@ -36,7 +36,6 @@ class LinkDetailView(DetailView):
 @login_required(login_url='/accounts/login/')
 def links_list(request):
     a = request.user.shorturl_set.all()
-    print(a)
     return render(request, 'shortener/links_list.html', {'object_list': a})
 
 
